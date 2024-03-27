@@ -13,6 +13,5 @@ public class MessageConstant {
     public static final String PASSWORD_ERROR="密码错误";
     public static final String OPERATION_FAILED="操作失败";
     public static final String NOT_LOGGED_IN="未登录";
-    public static final String STATE_ERROR_MESSAGE="{state参数的值只能是已发布或者草稿}";
 
 }
