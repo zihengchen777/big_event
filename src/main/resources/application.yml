@@ -6,3 +6,8 @@ spring:
     url: jdbc:mysql://${project.db.host}:3306/big_event?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&serverTimezone=Asia/Shanghai
     username: root
     password: 123
+
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true  # 开启驼峰命名和下划线命名的自动转化
