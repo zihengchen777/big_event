@@ -1,6 +1,7 @@
 package com.itheima.service;
 
 import com.itheima.pojo.Article;
+import com.itheima.pojo.PageResult;
 
 /**
  * Created with IntelliJ IDEA.
@@ -12,4 +13,7 @@ import com.itheima.pojo.Article;
 public interface ArticleService {
     //新增文章
     void add(Article article);
+
+
+    PageResult pageQuery(Integer pageNum, Integer pageSize, Integer categoryId, String state);
 }
