@@ -1,17 +1,13 @@
 package com.itheima.service.impl;
 
-import com.github.pagehelper.Page;
-import com.github.pagehelper.PageHelper;
 import com.itheima.mapper.ArticleMapper;
 import com.itheima.pojo.Article;
-import com.itheima.pojo.PageResult;
 import com.itheima.service.ArticleService;
 import com.itheima.utils.ThreadLocalUtil;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -35,15 +31,4 @@ public class ArticleServiceImpl implements ArticleService {
         article.setCreateUser(userId);
         articleMapper.add(article);
     }
-
-    @Override
-    public PageResult pageQuery(Integer pageNum, Integer pageSize, Integer categoryId, String state) {
-        PageHelper.startPage(pageNum,pageSize);
-        Page<Article> page=articleMapper.pageQuery(categoryId,state);
-        Long total=page.getTotal();
-        List<Article> result = page.getResult();
-        return new PageResult(total,result);
-    }
-
-
 }

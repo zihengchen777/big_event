@@ -1,15 +1,13 @@
 package com.itheima.controller;
 
 import com.itheima.constant.MessageConstant;
-import com.itheima.pojo.Article;
-import com.itheima.pojo.PageResult;
 import com.itheima.pojo.Result;
-import com.itheima.service.ArticleService;
 import com.itheima.utils.JwtUtil;
-import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletResponse;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Map;
 
@@ -23,17 +21,17 @@ import java.util.Map;
 @RestController
 @RequestMapping("/article")
 public class ArticleController {
-    @Resource
-    private ArticleService articleService;
-    @PostMapping
-    public Result add(@RequestBody @Validated Article article){
-        articleService.add(article);
-        return Result.success();
-    }
-
-    @GetMapping
-    public Result<PageResult> page(@RequestParam Integer pageNum, @RequestParam Integer pageSize,Integer categoryId, String state){
-        PageResult pageResult=articleService.pageQuery(pageNum,pageSize,categoryId,state);
-        return Result.success(pageResult);
+    @GetMapping("/list")
+    public Result<String> list(/*@RequestHeader(name = "Authorization") String token, HttpServletResponse response*/){
+        //验证token
+//        try {
+//            Map<String, Object> claims = JwtUtil.parseToken(token);
+//            return Result.success("所有的文章数据");
+//        } catch (Exception e) {
+//            //http响应状态码为401
+//            response.setStatus(401);
+//            return Result.error(MessageConstant.NOT_LOGGED_IN);
+//        }
+        return Result.success("所有的文章数据");
     }
 }
