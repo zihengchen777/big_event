@@ -1,5 +1,6 @@
 package com.itheima.controller;
 
+import com.itheima.constant.MessageConstant;
 import com.itheima.pojo.Category;
 import com.itheima.pojo.Result;
 import com.itheima.service.CategoryService;
@@ -42,6 +43,15 @@ public class CategoryController {
     @PutMapping
     public Result update(@RequestBody @Validated(Category.Update.class) Category category){
         categoryService.update(category);
+        return Result.success();
+    }
+    @DeleteMapping
+    public Result delete(Integer id){
+        Category c=categoryService.findById(id);
+        if(c==null){
+            return Result.error(MessageConstant.NOT_CATEGORY_ID);
+        }
+        categoryService.delete(id);
         return Result.success();
     }
 }
