@@ -1,6 +1,8 @@
 package com.itheima.mapper;
 
+import com.github.pagehelper.Page;
 import com.itheima.pojo.Article;
+import com.itheima.pojo.dto.ArticlePageQueryDTO;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -17,4 +19,6 @@ public interface ArticleMapper {
     @Insert("insert into article(title, content, cover_img,state, category_id, create_user, create_time, update_time) " +
             "VALUES(#{title},#{content},#{coverImg},#{state},#{categoryId},#{createUser},#{createTime},#{updateTime}) ")
     public void add(Article article);
+
+    Page<Article> pageQuery(ArticlePageQueryDTO articlePageQueryDTO);
 }

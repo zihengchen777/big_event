@@ -51,6 +51,12 @@
       <version>4.4.0</version>
     </dependency>
 
+    <dependency>
+      <groupId>com.github.pagehelper</groupId>
+      <artifactId>pagehelper-spring-boot-starter</artifactId>
+      <version>1.4.6</version>
+    </dependency>
+
 <!--    <dependency>-->
 <!--      <groupId>com.alibaba</groupId>-->
 <!--      <artifactId>druid-spring-boot-3-starter</artifactId>-->

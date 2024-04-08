@@ -1,6 +1,8 @@
 package com.itheima.service;
 
 import com.itheima.pojo.Article;
+import com.itheima.pojo.PageResult;
+import com.itheima.pojo.dto.ArticlePageQueryDTO;
 
 /**
  * Created with IntelliJ IDEA.
@@ -12,4 +14,6 @@ import com.itheima.pojo.Article;
 public interface ArticleService {
     //新增文章
     void add(Article article);
+
+    PageResult pageQuery(ArticlePageQueryDTO articlePageQueryDTO);
 }
